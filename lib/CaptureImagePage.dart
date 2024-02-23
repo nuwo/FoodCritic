@@ -135,7 +135,7 @@ class TakePictureState extends State<TakePicture> {
                 child: const Text(
                   'Choose from Library',
                   style: TextStyle(
-                    fontSize: 45.0,
+                    fontSize: 10.0,
                   ),
                 ),
               ),
@@ -149,15 +149,25 @@ class TakePictureState extends State<TakePicture> {
                   }
 
                   if (!mounted) return;
-
+                  final imageTemp = File(image.path);
+                  setState(() => this.image = imageTemp);
                   //take image from image path
                   //Pass it to inference display page
-                  //imagePath:image.Path,
+                  Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DisplayPage(
+                          // Pass the automatically generated path to
+                          // the DisplayPictureScreen widget.
+                          //label:_identifiedTexture,
+                          image: this.image?.absolute,
+                        ),
+                      ),
+                  );
                 },
                 icon: const Icon(Icons.camera_alt),
                 label: const Text("Press to take picture",
                     style: TextStyle(
-                      fontSize: 45.0,
+                      fontSize: 10.0,
                     )),
               )
             ],

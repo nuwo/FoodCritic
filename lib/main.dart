@@ -73,13 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
   var data = """
              <!DOCTYPE html><html>
               <head>
-
-                  
-                  <p style = "padding : 280px 300px 0px 320px">
+                  <p style = "padding : 280px 300px 0px 320px>
+                  <option> appearance: none </option>
                   Sometimes we need to visualize 
                   the texture of the food or a
-                  commodity for its QUALITY </p>
-                  <p style = "padding : 1 px 300px 0px 310px" >
+                  commodity for its QUALITY</p> 
+                  <p padding : 1 px 300px 0px 310px>
+       
                   So here is an app to find out.. </p>
                  
               </head>
@@ -89,7 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
   //<h1>
   //" Food Critic....."
   //</h1>
-
+  //<p style = "padding : 280px 300px 0px 320px">
+  //<p style = "padding : 1 px 300px 0px 310px" >
+  //<option> appearance: none </option>
   int _counter = 0;
 
   late CameraDescription cCamera;
@@ -131,65 +133,49 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
+        height: 2000,
+        width: double.maxFinite,
         decoration: BoxDecoration(
             color: Colors.black,
             image: DecorationImage(
               image:
-                  const AssetImage("assets/images/foodcritic_background.png"),
-              fit: BoxFit.fitWidth,
+              const AssetImage("assets/images/foodcritic_background.png"),
+              fit: BoxFit.fill,
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(1.0), BlendMode.dstATop),
             )),
-        child: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
+        child: SingleChildScrollView(
           child: Column(
-            // Column is also a layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            //
-            // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-            // action in the IDE, or press "p" in the console), to see the
-            // wireframe for each widget.
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SingleChildScrollView(
-                child: Html(
-                    data: data,
-                    //shrinkWrap: true,
-                    //onlyRenderTheseTags: const { 'head','h1'},
-                    style: {
-                      "h1": Style(
-                        //backgroundColor:
-                        //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
-                        color: Colors.black87,
-                        fontSize: FontSize(70.0),
-                        fontStyle: FontStyle.italic,
-                        //alignment: Alignment.,
-                        textAlign: TextAlign.center,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      "p": Style(
-                        //backgroundColor:
-                        //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
-                        color: Colors.red[50],
-                        fontSize: FontSize(60.0),
+            children: [
+              Html(
+                  data: data,
+                  //shrinkWrap: true,
+                  //onlyRenderTheseTags: const { 'head','h1'},
+                  style: {
+                    "h1": Style(
+                      //backgroundColor:
+                      //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
+                      color: Colors.black87,
+                      fontSize: FontSize(40.0),
+                      fontStyle: FontStyle.italic,
+                      //alignment: Alignment.,
+                      //textAlign: TextAlign.center,
+                      //fontWeight: FontWeight.w700,
+                    ),
+                    "p": Style(
+                      //backgroundColor:
+                      //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
+                      height:,
+                      color: Colors.red[50],
+                      fontSize: FontSize(20.0),
 
-                        fontStyle: FontStyle.italic,
-                        alignment: Alignment.center,
-                      ),
-                      "t": Style(
-                        color: Colors.black,
-                      ),
-                    }),
-              ),
-
+                      fontStyle: FontStyle.italic,
+                      alignment: Alignment.center,
+                    ),
+                    "t": Style(
+                      color: Colors.black,
+                    ),
+                  }),
               ElevatedButton(
                 //style:Style.
                 //focusNode: ,
@@ -201,108 +187,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const Text('Take a Picture',
                     selectionColor: Colors.green,
                     style: TextStyle(
-                        height: 5,
-                        fontSize: 40.0,
+                        height: 3,
+                        fontSize: 10.0,
                         fontStyle: FontStyle.normal,
                         color: Colors.indigo)),
               ),
-              //html page
-              /*
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),*/
             ],
           ),
         ),
       ),
-
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      // This trailing comma makes auto-formatting nicer for build methods.
-       */
     );
-
-    /*
-
-      Container(
-      constraints: const BoxConstraints.expand(),
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-            image:  AssetImage("assets/images/foodcritic_background.png"),
-            //fit: BoxFit.fitWidth,
-
-            //colorFilter: ColorFilter.mode(
-              //  Colors.black.withOpacity(1.0), BlendMode.dstATop),
-          )),
-      child:  Scaffold(
-        appBar: AppBar(
-          // TRY THIS: Try changing the color here to a specific color (to
-          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-          // change color while the other colors stay the same.
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-        ),
-        body: Center(
-
-          child:Column(
-            children: [
-              SingleChildScrollView(
-                child: Html(
-                    data: data,
-                    //shrinkWrap: true,
-                    //onlyRenderTheseTags: const { 'head','h1'},
-                    style: {
-                      "h1": Style(
-                        //backgroundColor:
-                        //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
-                        color: Colors.black87,
-                        fontSize: FontSize(70.0),
-                        fontStyle: FontStyle.italic,
-                        alignment: Alignment.center,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      "p": Style(
-                        //backgroundColor:
-                        //const Color.fromARGB(0x50, 0xee, 0xee, 0xee),
-                        color: Colors.red,
-                        fontSize: FontSize(60.0),
-
-                        fontStyle: FontStyle.italic,
-                        alignment: Alignment.center,
-                      ),
-                    }),
-              ),
-
-
-
-              ElevatedButton(
-                //style:Style.
-                //focusNode: ,
-                onPressed: ()
-                {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => CaptureImagePage(firstCamera :cCamera)));
-                },
-                child: const Text('Take a Picture',
-                    style: TextStyle(height : 5, fontSize: 40.0, fontStyle: FontStyle.normal)),
-
-              ),
-              //html page
-
-            ],
-          )
-        )
-      ),
-    );
-  */
   }
 }
